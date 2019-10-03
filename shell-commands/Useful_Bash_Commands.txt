@@ -1,0 +1,4 @@
+#To clone repo from GIT using a Specific private key
+
+ssh-agent bash -c 'ssh-add ~/.ssh/keys/github_manikandaraj; git clone git@github.com:manikandaraj/vision.git'
+

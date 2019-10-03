@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#To Print the dates in the Current Month in a Specific format
+format="%b %d, %Y %A"
+startDate=`date +"%b 01, %Y %A"`
+n=0
+numberOfDaysInCurMon=`cal $(date +"%m %Y") | xargs -n1 | tail -n 1`
+while [ $n -lt $numberOfDaysInCurMon ];
+do
+	dateStr=$(date -d "$startDate + $n days" +"$format")
+	echo $dateStr
+	((n++))
+done
