@@ -1,0 +1,20 @@
+How to Invalidate Cloud Front Cache through CLI,
+
+* You need to have awscli installed and added to your $PATH, for the aws commands to work
+* You need to have the ~/.aws/config and ~/.aws/credentials setup in your home directory.
+* You need to have jq util, which makes it easy for looking into your Distribution details response.
+
+Get the List of Distributions for your account,
+	aws cloudfront list-distributions > AWS_CloudFront_Distribution_List.json
+
+Let's just say this is your Cloudfront URL,
+	http://dmf4bfelyx33v.cloudfront.net/images/headerlogos/header1.bmp
+then your domain is - 'dmf4bfelyx33v'
+
+Get the Distribution ID from the List, giving the domain name,
+	cat AWS_CloudFront_Distribution_List.json | jq -r '.DistributionList.Items[] | select(.DomainName | test("dmf4bfelyx33v*")) | .Id'
+
+Invalidate the Cache by using the below command, 
+	aws cloudfront create-invalidation --distribution-id E4S45NPHIMFNS1 --paths /images/headerlogos/header1.bmp
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-invalidation.html

@@ -1,4 +1,12 @@
 #To clone repo from GIT using a Specific private key
-
 ssh-agent bash -c 'ssh-add ~/.ssh/keys/github_manikandaraj; git clone git@github.com:manikandaraj/vision.git'
+
+#Multi-line Git Comment
+git commit -F-<<EOF
+COMMENTS
+EOF
+
+#To push using a Specific private key
+ssh-agent bash -c 'ssh-add ~/.ssh/keys/github_manikandaraj; git push origin'
+
 
