@@ -1,0 +1,2 @@
+#To remove first N characters from each line of a file
+%s/^.\{0,5\}//

@@ -1,0 +1,17 @@
+1. Start a dummy nginx docker and copy the configuration files from the container,
+	sudo docker run --name nginx_dummy -p 0.0.0.0:8080:80 -d -i nginx
+2. List Docker containers, which will give you the container id,
+	sudo docker container ls
+	CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+	13eb23e98448        nginx               "nginx -g 'daemon of…"   27 minutes ago      Up 27 minutes       0.0.0.0:5050->80/tcp   nginx_1.0
+3. Copy the Nginx conf from the docker container,
+	docker cp 13eb23e98448:/etc/nginx /mystorage/apps/conf/nginx
+4. Modify the Nginx conf and enable autoindex on,
+	nginx/conf.d/default.conf
+    location / {
+        root   /usr/share/nginx/html;
+        autoindex on;
+        index  index.html index.htm;
+    }
+5. Start the Nginx docker,
+	sudo docker run --name nginx_1.0 -p 0.0.0.0:5050:80 -d -v /mystorage/data:/usr/share/nginx/html -v /mystorage/apps/conf/nginx:/etc/nginx:ro -i nginx
