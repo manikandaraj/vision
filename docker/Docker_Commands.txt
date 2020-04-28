@@ -33,5 +33,16 @@ docker version
 docker info | grep "Docker Root Dir"
 sudo docker container ls
 sudo docker $containerName$/$containerId$ stop/start
-sudo docker images
+sudo docker images -a
 sudo docker ps -a
+sudo docker rmi $imagename$
+sudo docker rm $containername$
+
+
+
+To Build and push to docker hub
+=========================================
+docker build --network host -t my_centos .
+docker login --username=manikandarajs
+docker tag my_centos manikandarajs/elixir:0.0.1
+docker push manikandarajs/elixir:0.0.1
