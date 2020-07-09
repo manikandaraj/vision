@@ -46,3 +46,7 @@ docker build --network host -t my_centos .
 docker login --username=manikandarajs
 docker tag my_centos manikandarajs/elixir:0.0.1
 docker push manikandarajs/elixir:0.0.1
+
+
+docker run -v $PWD:/src -w /src --network host -p 3000:3000 -u node -it node /bin/bash
+
