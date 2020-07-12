@@ -1,0 +1,16 @@
+* Changing the Bundled Maven,
+	File -> Settings -> Build, Execution, Deployment -> Build Tools -> Maven
+	Change the Maven Home Directory and choose your installation directory
+	Change the Maven User settings file and choose the file from the installation directory
+
+	File -> Settings -> Appearance & Behaviour -> Path Variables
+	Change the Maven Home Directory to your installation directory
+
+	File -> Settings -> New Project Settings-> Settings for New Projects -> Build, Execution, Deployment -> Build Tools -> Maven
+	Change the Maven Home Directory and choose your installation directory
+	Change the Maven User settings file and choose the file from the installation directory
+
+* Changing the JDK Environment in Intellij Idea,
+	Close All Projects, in the Intellij Idea Welcome Screen,
+	Configure -> Structure for New Projects -> Platform Settings -> SDKs -> Click on + and add the SDK.
+	Configure -> Structure for New Projects -> Project Settings -> Project -> Select the Java SDK.

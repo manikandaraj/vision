@@ -1,0 +1,18 @@
+docker run --name mysql_dev_server -v /vision/sysapps-data/docker-data/mysql_dev_server:/var/lib/mysql -p 3307:3306 -d mysql/mysql-server:8.0.20
+
+docker run \
+--detach \
+--name=mysql_dev_server \
+--publish 0.0.0.0:3307:3306 \
+--volume=/vision/sysapps-data/docker-data/mysql_dev_server:/var/lib/mysql \
+--volume=/vision/data/logs/mysql_dev_server:/var/log/mysql \
+-e "MYSQL_RANDOM_ROOT_PASSWORD=yes" \
+mysql:8.0.20 \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_0900_as_cs
+
+
+docker logs mysql_dev_server | grep -i "GENERATED ROOT PASSWORD"
+docker exec -it mysql_dev_server /bin/bash
+mysql -uroot -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'my_password';

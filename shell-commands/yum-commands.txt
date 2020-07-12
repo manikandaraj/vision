@@ -1,0 +1,15 @@
+To List all installed Repositories,
+	yum repolist all
+
+To List enabled repositories,
+	yum repolist enabled
+	yum repolist
+
+To List disabled repositories,
+	yum repolist disabled
+
+To Add a repository,
+	yum-config-manager --add-repo repository_url
+	#yum-config-manager is part of yum-utils PKG.
+
+
