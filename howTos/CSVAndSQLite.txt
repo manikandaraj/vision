@@ -1,0 +1,34 @@
+Importing CSV to SQLite Database
+---------------------------------------
+* SQLite imports CSV files with header, so the first row should be removed from CSV file.
+* Create SQLite DB,
+		sqlite3 csvDB.sqlite
+* Create table, based on the columns from the CSV File.
+		CREATE TABLE CSV_TABLE(
+			TextColumn TEXT,
+			IntColumn INTEGER,
+			FloatColumn REAL,
+			BlobColumn BLOB
+		);
+* Execute the  following queries
+		.mode csv
+		.import CSVFile.csv CSV_TABLE
+		.headers on
+		SELECT TextColumn, IntColumn, FloatColumn, BlobColumn FROM CSV_TABLE ORDER BY IntColumn DESC;
+
+Exporting SQLite Table to CSV File,
+---------------------------------------
+* Open SQLite DB,
+		sqlite3 myDB.sqlite
+* Change SQLite Mode to CSV,
+		.mode csv
+* Enable Headers
+		.headers on
+* Set Output to a CSV File,
+		.output outFile.csv
+					OR
+		.once outFile.csv
+* Execute the Query for the columns you want in the CSV File
+		SELECT * FROM MY_TABLE;
+* Change the output to stdout in SQLite,
+		.output stdout

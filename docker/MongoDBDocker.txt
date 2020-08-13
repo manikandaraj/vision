@@ -1,0 +1,1 @@
+docker run -d --name mongo_dev_server -v /data/db:/vision/sysapps-data/mongodb/mongo_dev_server -p 27017:27017 mongo

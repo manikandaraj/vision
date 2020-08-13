@@ -6,3 +6,11 @@
 :set ts
 	Setting Verbose will show you logs
 	2nd Command will show you the value of ts in the vim and where it is loaded from
+
+
+#To findout, from where a VIM setting is loading from
+:verbose set tabstop?
+	This will show from which file tabstop loaded from.
+
+#To findout the VIMRC files, vim refers,
+:version
