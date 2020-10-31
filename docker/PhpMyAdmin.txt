@@ -1,0 +1,12 @@
+docker run \
+--detach \
+--name=php_mysql_admin \
+--publish 0.0.0.0:8081:80 \
+--env="PMA_ARBITRARY=1" \
+phpmyadmin
+
+#For Connecting in Other Dockers, this worked for PhpMyAdmin running in Docker
+1. firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.27.0.0/16 accept'
+2. Add '127.0.0.1 localhost' to /etc/hosts
+3. Connect using the Docker IP in PhpMyAdmin
+

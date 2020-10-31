@@ -9,4 +9,18 @@ EOF
 #To push using a Specific private key
 ssh-agent bash -c 'ssh-add ~/.ssh/keys/github_manikandaraj; git push origin'
 
+#To Sort Processes by Memory Usage
+ps aux --sort -rss | head -n 10
+
+#To Sort Processes by CPU Usage
+ps aux --sort -pcpu | head -n 10
+
+#To GREP and get the exact pattern only
+grep -P -o "MAN-0019-\d+" | sort | uniq
+
+#Firewall Commands
+firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.27.0.0/16 accept'
+firewall-cmd --list-all
+firewall-cmd --permanent --add-port=7171/tcp
+firewall-cmd --reload
 
