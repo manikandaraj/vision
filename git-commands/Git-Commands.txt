@@ -1,0 +1,19 @@
+#To Clone,
+git clone git@bitbucket.org:workspace/git_repository.git
+
+#To add files for Staging,
+git add $file_in_repo$
+
+#To Commit,
+git commit -m "Commit Message"
+git commit -F-<<EOF
+MultiLine Commit Message
+EOF
+
+#To push changes to GIT Server,
+git push origin master
+git push origin BRANCH_NAME
+
+
+#To Clone in VERBOSE,
+GIT_SSH_COMMAND="ssh -v" git clone git@manikandaraj.github.com:manikandaraj/vision.git

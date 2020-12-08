@@ -1,0 +1,9 @@
+docker run -d \
+--name postgres_dev_server_9.6.19-alpine \
+-e POSTGRES_PASSWORD=DBPass357$ \
+-e PGDATA=/var/lib/postgresql/data/pgdata \
+-p 5435:5432 \
+-v /vision/sysapps-data/docker-data/postgres_dev_server_9.6.19-alpine:/var/lib/postgresql/data \
+postgres:9.6.19-alpine
+
+psql -h localhost -U postgres --port=5435

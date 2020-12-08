@@ -1,0 +1,7 @@
+docker run -d \
+--name pgadmin4_4.27 \
+-p 5050:80 \
+-e 'PGADMIN_DEFAULT_EMAIL=mani@manikandaraj.com' \
+-e 'PGADMIN_DEFAULT_PASSWORD=mani' \
+--link postgres_dev_server_9.6.19-alpine \
+-d dpage/pgadmin4:4.27

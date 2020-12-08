@@ -1,0 +1,11 @@
+Network Manager CLI,
+
+--To List the WiFi networks,
+nmcli device wifi list
+
+To List Saved WiFi Networks,
+nmcli connection show
+
+To Get Password for the Saved WiFi network,
+nmcli --show-secrets connection show "DisneyLand"
+

@@ -19,7 +19,9 @@ ps aux --sort -pcpu | head -n 10
 grep -P -o "MAN-0019-\d+" | sort | uniq
 
 #Firewall Commands
-firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.27.0.0/16 accept'
+firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.17.0.0/24 accept'
+firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=192.168.0.0/24 accept'
+firewall-cmd --permanent --remove-rich-rule 'rule family=ipv4 source address=172.17.0.0/16 accept'
 firewall-cmd --list-all
 firewall-cmd --permanent --add-port=7171/tcp
 firewall-cmd --reload

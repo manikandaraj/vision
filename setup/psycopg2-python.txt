@@ -1,0 +1,5 @@
+To install pg_config binary, install the below Package,
+yum install libpq-devel.x86_64
+
+pip install psycopg2
+

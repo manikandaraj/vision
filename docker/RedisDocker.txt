@@ -1,0 +1,11 @@
+docker run -d \
+--name redis_dev_server_6.0.9 \
+-p 6375:6379 \
+-v /vision/sysapps-data/docker-data/redis_dev_server_6.0.9:/data \
+-v /vision/conf/docker-conf/redis_dev_server_6.0.9/redis.conf:/usr/local/etc/redis/redis.conf \
+redis:6.0.9 \
+redis-server /usr/local/etc/redis/redis.conf
+
+
+
+1. Change bind 127.0.0.1 to bind 0.0.0.0 for connecting across other IPs

@@ -1,0 +1,21 @@
+To Start, Bluetooth Service			[AS ROOT USER]
+	systemctl start bluetooth
+
+Check Bluetooth Service Status,			[AS ROOT USER]
+if you notice bluetooth is blocked by rfkill
+unblock bluetooth from rfkill
+	rfkill list
+	rfkill unblock bluetooth
+
+Turn on bluetoothctl,
+	bluetoothctl power on
+
+Goto bluetoothctl terminal,
+	bluetoothctl
+		agent on
+		pairable on
+		scan on
+		scan off
+		pair [DEVICE_MAC_ID]
+		trust [DEVICE_MAC_ID]
+		connect [DEVICE_MAC_ID]

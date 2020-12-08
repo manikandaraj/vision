@@ -1,0 +1,61 @@
+#To import data or schema into the Database,
+psql -h localhost -p 5435 --dbname=mymasterdb -U mani -f ./database/dbSchema.sql
+
+To List Databases,
+	\l
+To List Schemas,
+	\dn
+To Switch to a Particular DB,
+	\c DB_NAME
+To List Tables,
+	\dt
+To List Roles,
+	\du
+
+SELECT * FROM pg_database;
+SELECT * FROM PG_ROLES;
+
+CREATE ROLE mani WITH LOGIN CREATEDB CONNECTION LIMIT 5 PASSWORD 'mani';
+CREATE DATABASE mani OWNER mani;
+CREATE DATABASE verihired_db OWNER mani;
+
+CREATE SCHEMA IF NOT EXISTS master AUTHORIZATION mani;
+SET search_path TO master;
+
+ALTER ROLE your_username CONNECTION LIMIT -1;
+
+
+#To Reset the Auto Increment Value of SERIAL Column,
+SELECT SETVAL((SELECT pg_get_serial_sequence('TABLE_NAME', 'COLUMN_NAME')), 1, false);
+
+
+
+To Drop Database,
+DROP DATABASE DBNAME;
+
+To Drop User, 
+DROP OWNED BY your_user;
+DROP USER your_user;
+
+CREATE ROLE myuser LOGIN password 'secret';
+CREATE DATABASE mydatabase ENCODING 'UTF8' OWNER myuser;
+
+
+--To List Enums in our Database,
+select n.nspname as enum_schema,  
+       t.typname as enum_name,  
+       e.enumlabel as enum_value
+from pg_type t 
+   join pg_enum e on t.oid = e.enumtypid  
+   join pg_catalog.pg_namespace n ON n.oid = t.typnamespace;
+
+-- To List Constraints in a Database,
+SELECT con.*
+       FROM pg_catalog.pg_constraint con
+            INNER JOIN pg_catalog.pg_class rel
+                       ON rel.oid = con.conrelid
+            INNER JOIN pg_catalog.pg_namespace nsp
+                       ON nsp.oid = connamespace
+       WHERE nsp.nspname = '<schema name>'
+             AND rel.relname = '<table name>';
+

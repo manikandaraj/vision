@@ -1,0 +1,30 @@
+# This Guide is for Generating & using SSH keys in GIT & for SSH Authentication.
+
+# Generating the SSH Keys
+ssh-keygen -t rsa
+	The above command will generate SSH Keys in default location, ~/.ssh/ida_rsa
+# Copy the Public Key Content to GIT or Bitbucket -> SSH Keys, Then you can
+# clone & commit to the GIT or Bitbucket.
+
+# Using Multiple Bitbucket/GIT accounts.
+# Generating Multiple SSH Keys
+	mkdir ~/.ssh/keys/companyname
+	ssh-keygen -t rsa -C "companyName" -f ~/.ssh/keys/companyName/companyName
+	ssh-add ~/.ssh/keys/companyName/companyName
+	ssh-add -l
+
+# vim ~/.ssh/config
+	Host companyname.bitbucket.org
+		HostName bitbucket.org
+		IdentityFile ~/.ssh/keys/companyName/companyName
+	Host companyname.github.com
+		HostName github.com
+		IdentityFile ~/.ssh/keys/companyName/companyName
+
+# Set Permissions for SSH Config,
+	chmod 600 ~/.ssh/config
+
+
+# For Cloning Repository, from Github or Bitbucket,
+	git clone git@manikandaraj.bitbucket.org:manikandaraj/my-coding-guidelines.git
+	git clone git@manikandaraj.github.com:manikandaraj/my-coding-guidelines.git

@@ -1,12 +1,11 @@
 #To remove first N characters from each line of a file
-%s/^.\{0,5\}//
+:%s/^.\{0,5\}//
 
 #To find out, where a conf of vim is set from
 :set verbose=9
 :set ts
 	Setting Verbose will show you logs
 	2nd Command will show you the value of ts in the vim and where it is loaded from
-
 
 #To findout, from where a VIM setting is loading from
 :verbose set tabstop?

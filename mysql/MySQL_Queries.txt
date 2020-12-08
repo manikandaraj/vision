@@ -17,6 +17,13 @@ GRANT SELECT ON MY_NEW_DB.*  TO 'read-only-user'@'%';
 To Reset the Auto Increment Counter,
 ALTER TABLE TABLE_NAME AUTO_INCREMENT=1;
 
+
+--To Drop Unique Keys from a table,
+ALTER TABLE THE_TABLE DROP INDEX UNIQUE_AUDS; 
+
+--To Create Unique Keys in a existing Table,
+ALTER TABLE THE_TABLE ADD CONSTRAINT UNIQUE INDEX UNIQUE_AUDS (USER_ID, USER_HASH, USER_TYPE);
+
 If you are using any Older version of MySQL Workbench, you may need to use mysql_native_password,
 CREATE USER 'mani'@'%' IDENTIFIED WITH mysql_native_password BY 'my_password';
 

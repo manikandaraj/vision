@@ -1,0 +1,14 @@
+To List Server Conf,
+INFO
+
+To List Databases in Redis,
+INFO keyspace
+
+To List the Number of Databases,
+CONFIG GET databases
+
+To Select a Particular Database,
+SELECT index
+
+To List all Keys,
+KEYS *

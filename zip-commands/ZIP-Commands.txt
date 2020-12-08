@@ -1,0 +1,2 @@
+#To Exclude .git, node_modules, build directories when zipping a folder
+zip -r react-app.zip react-app -x *.git* */node_modules/**\* */build/**\*
