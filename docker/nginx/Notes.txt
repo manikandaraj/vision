@@ -1,0 +1,2 @@
+mkdir /vision/conf/docker-conf/nginx_dev_server_v_stable-perl/config
+docker run --rm -it nginx:stable-perl cat /etc/nginx/conf.d/default.conf > /vision/conf/docker-conf/nginx_dev_server_v_stable-perl/config/nginx.conf

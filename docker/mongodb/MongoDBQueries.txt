@@ -1,0 +1,13 @@
+docker exec -it prod_mongo_server_v-4.4.3 mongo admin -u mani -p 'mani'
+
+use admin
+db.createUser(
+{
+	user: "appuser",
+	pwd: passwordPrompt(),
+	roles:[
+		{
+			role: "readWrite" , db:"newton"
+		}
+	]
+})

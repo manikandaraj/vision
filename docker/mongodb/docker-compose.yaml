@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  prod_mongo_server:
+    image: mongo:4.4.3
+    hostname: prod_mongo_server_v-4.4.3
+    container_name: prod_mongo_server_v-4.4.3
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mani
+      MONGO_INITDB_ROOT_PASSWORD: mani
+    ports:
+      - 27017:27017
+    volumes:
+      - /vision/sysapps-data/mongodb/prod_mongo_server_v-4.4.3:/data/db

@@ -1,0 +1,8 @@
+
+--To List Buckets,
+aws s3api list-buckets --query "Buckets[].Name"
+aws s3 ls
+
+--To List Objects inside Buckets,
+aws s3 ls s3://bucketname/
+aws s3 ls s3://bucketname/folder/

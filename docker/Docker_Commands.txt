@@ -38,6 +38,7 @@ sudo docker images -a
 sudo docker ps -a
 sudo docker rmi $imagename$
 sudo docker rm $containername$
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $containername$
 
 
 

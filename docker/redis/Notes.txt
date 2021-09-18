@@ -1,0 +1,2 @@
+mkdir /vision/conf/docker-conf/redis_dev_server_6.0.10_TEST/config
+docker run --rm -it redis:6.0.10 cat /usr/local/etc/redis/redis.conf > /vision/conf/docker-conf/redis_dev_server_6.0.10_TEST/config/redis.conf

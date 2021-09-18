@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  dev-redis-server:
+    container_name: redis_dev_server_v-6.0.10
+    hostname: redis_dev_server_v-6.0.10
+    image: redis:6.0.10
+    ports:
+      - 6379:6379
+    volumes:
+      - /vision/sysapps-data/docker-data/redis_dev_server_6.0.10:/data
+      - /vision/conf/docker-conf/redis_dev_server_6.0.10/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf

@@ -1,0 +1,66 @@
+# Upon Creating a MongoDB, with a admin user,
+# Connect to Mongo DB,
+
+	mongo -u$ROOTUSER$ -p$PASSWORD$
+
+# Switch to admin DB
+	use admin;
+# Create Dev, Test & App Users,
+	db.createUser(
+	{
+		user: "developer",
+		pwd: passwordPrompt(),
+		roles:[
+			{
+				role: "readWrite" , db:"dev_db"
+			}
+		]
+	});
+	PASSWORD : developer
+
+	db.createUser(
+	{
+		user: "tester",
+		pwd: passwordPrompt(),
+		roles:[
+			{
+				role: "readWrite" , db:"test_db"
+			}
+		]
+	});
+	PASSWORD : tester
+
+	db.createUser(
+	{
+		user: "application",
+		pwd: passwordPrompt(),
+		roles:[
+			{
+				role: "readWrite" , db:"app_db"
+			}
+		]
+	});
+	PASSWORD : application
+
+# Login with specific user & db,
+	mongo dev_db -udeveloper -pdeveloper
+	mongo test_db -utester -ptester
+	mongo app_db -uapplication -papplication
+
+# After Login, switch to specific DB,
+	use dev_db
+
+# Create Collection
+	db.createCollection("py-mon-col-101");
+
+# If the collection name contains, non alpha-numeric characters, 
+#	use the below command to set collection for querying,
+
+	const col = db.getCollection("py-mon-col-101")
+	col.find()
+						OR
+	db["py-mon-col-101"].find() 
+
+# If you need to pretty print the JSON in Mongo Shell,
+# use pretty() after the find,
+	db.collection.find().pretty();

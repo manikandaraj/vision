@@ -17,3 +17,6 @@ git push origin BRANCH_NAME
 
 #To Clone in VERBOSE,
 GIT_SSH_COMMAND="ssh -v" git clone git@manikandaraj.github.com:manikandaraj/vision.git
+
+#To Make Git PULL/PUSH Verbose,
+git config core.sshCommand "ssh -v"

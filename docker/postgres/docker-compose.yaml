@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  postgres-prod-server:
+    container_name: postgres_prod_server_v-9.6.20-alpine
+    hostname: postgres_prod_server_v-9.6.20-alpine
+    image: postgres:9.6.20-alpine
+    environment:
+      POSTGRES_PASSWORD: DBAAdmin123
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:
+      - /verihired/data-storage/docker/postgres_prod_server_9.6.20-alpine:/var/lib/postgresql/data
