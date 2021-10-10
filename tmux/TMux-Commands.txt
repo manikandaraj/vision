@@ -1,0 +1,6 @@
+# Open Tmux
+	tmux
+# Split Panes
+	CTRL-B, %
+# Switching Panes
+	CTR-B, ARROW-KEYS
